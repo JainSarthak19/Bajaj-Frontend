@@ -16,33 +16,32 @@ const App = () => {
     { value: 'highest_lowercase', label: 'Highest Lowercase Alphabet' }
   ];
 
-  // Handle changes to input data
+
   const handleInputChange = (e) => {
     setInputData(e.target.value);
   };
 
-  // Handle the submission of the form
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const jsonData = JSON.parse(inputData); // Parse input to validate JSON format
-      setError(''); // Reset error state if the input is valid
+      const jsonData = JSON.parse(inputData);
+      setError('');
 
-      // Send POST request to backend API with input JSON
+
       const response = await axios.post('https://bajaj-backend-wtxb.onrender.com/bfhl', jsonData);
-      setResponseData(response.data); // Set the response data
+      setResponseData(response.data);
     } catch (err) {
       setError('Invalid JSON input. Please check your format.');
-      setResponseData(null); // Clear previous response data
+      setResponseData(null);
     }
   };
 
-  // Handle changes in the select filter options
   const handleSelectChange = (selected) => {
     setSelectedOptions(selected);
   };
 
-  // Function to render filtered response based on selected options
+
   const renderResponse = () => {
     if (!responseData) return null;
 
