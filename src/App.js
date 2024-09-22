@@ -29,7 +29,7 @@ const App = () => {
       setError(''); // Reset error state if the input is valid
 
       // Send POST request to backend API with input JSON
-      const response = await axios.post('http://localhost:3000/bfhl', jsonData);
+      const response = await axios.post('https://bajaj-backend-wtxb.onrender.com/bfhl', jsonData);
       setResponseData(response.data); // Set the response data
     } catch (err) {
       setError('Invalid JSON input. Please check your format.');
